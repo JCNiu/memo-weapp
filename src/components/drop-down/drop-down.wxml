@@ -5,8 +5,8 @@
 
 <van-popup
   show="{{ show }}"
-  closeable
   position="top"
+  z-index="200"
   custom-style="top: 88rpx; max-height: 60%; overflow: hidden;"
   overlay-style="background-color: transparent;"
   bind:click-overlay="doClose">
@@ -22,7 +22,7 @@
             </view>
             <view class="row-left-cont">{{item.label}}</view>
           </view>
-          <view class="row-right {{index == selectIndex ? 'active' : ''}}">{{item.value}}</view>
+          <view class="row-right {{index == selectIndex ? 'active' : ''}}">{{item.num}}</view>
         </view>
       </block>
     </scroll-view>

@@ -229,6 +229,27 @@ let publicApi = {
   },
 
   /**
+   * 判断非空数组[]
+   * @param {*} object
+   */
+  isNotEmptyArr: function (arr) {
+    if (!publicApi.isArray(arr)) {
+      return false;
+    }
+    return arr.length != 0;
+  },
+
+  /**
+   * 判断空数组[];非数组或者数组为空,返回ture
+   * @param {*} array 
+   */
+  isEmptyArr: function (arr) {
+    //非数组
+    if (!publicApi.isArray(arr)) return true;
+    return arr.length == 0;
+  },
+
+  /**
    * 替换对象的属性;
    * 例如: originObject = {a: 123,b: 456} replaceKeys(originObject,{a: "x",b: "y"}) 后修改为 {x: 123,y: 456}
    * 

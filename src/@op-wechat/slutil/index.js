@@ -1,7 +1,6 @@
 /**
  * 工具类引入接口,不实现具体方法
  */
-var array = require('./array');
 var date = require('./date');
 var format = require('./format');
 var num = require('./num');
@@ -16,7 +15,6 @@ var urlTool = require('./url-tool');
 
 
 module.exports = { 
-  array,
   date, 
   format, 
   num, 

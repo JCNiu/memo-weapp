@@ -15,6 +15,19 @@ class myService {
   }
 
   /**
+   * 查询备忘列表
+   */
+  getClassifyList(param) {
+    let option = {
+      cloudname: 'memo-search-classify',
+      params: param,
+      isOnlySuccessData: false,
+      isSupportTourist: true,
+    }
+    return slutil.callFunction(option).then();
+  }
+
+  /**
    * 格式化备忘列表
    */
   formatMemoList(list) {

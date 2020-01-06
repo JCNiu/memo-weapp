@@ -4,7 +4,6 @@
 
 <van-popup
   show="{{ show }}"
-  closeable
   position="top"
   custom-style="top: 88rpx; max-height: 60%; overflow: hidden;"
   overlay-style="background-color: transparent;"
@@ -12,7 +11,7 @@
   <view class="search-content">
     <input class="search-input" 
       type="text"
-      valu="{{keyWord}}"
+      value="{{ keyWord }}"
       bindinput="onChange"
       bindconfirm="doSearch">
     </input>

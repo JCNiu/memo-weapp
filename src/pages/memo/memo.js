@@ -5,11 +5,16 @@ Page({
   data: {
     // 下拉组件展示
     isDropDown: false,
+    // 分类列表
+    classifyList: [],
     // 备忘列表
     memoList: [],
     // 查询参数
     searchParam: {
-      selectTime: '',
+      // selectTime: '',
+      keyWord: '',        // 关键字
+      classify: '',       // 分类
+
     },
     footer: {
       pageSize: 10,       // 每页最大记录数
@@ -19,13 +24,31 @@ Page({
   },
 
   onSlShow() {
-    // this.init();
+    this.init();
   },
 
   // 初始化
   init() {
-    this.setData({ ['searchParam.selectTime']: slutil.date.toStr(slutil.date.getToday()) });
+    // this.setData({ ['searchParam.selectTime']: slutil.date.toStr(slutil.date.getToday()) });
+    this.classifyInit();
     this.doReset();
+  },
+
+  // 分类初始化 
+  classifyInit() {
+    let param = { usercode: suiLocalConfig.loginInfo.code };
+    myService.getClassifyList(param).then(res => {
+      let { result } = res.data;
+      let classifyList = [];
+      result.map((item, index) => {
+        classifyList.push({
+          label: item.value,
+          value: index,
+          num: item.num,
+        })
+      });
+      this.setData({ classifyList });
+    });
   },
 
   // 列表初始化
@@ -33,8 +56,10 @@ Page({
     let { searchParam, memoList, footer } = this.data;
     let param = {
       usercode: suiLocalConfig.loginInfo.code,
-      starttime: searchParam.selectTime,
-      endtime: searchParam.selectTime,
+      // starttime: searchParam.selectTime,
+      // endtime: searchParam.selectTime,
+      keyword: searchParam.keyWord,
+      classify: searchParam.classify,
       ...footer,
     }
     myService.getMemoList(param).then(res => {
@@ -45,9 +70,9 @@ Page({
         } else {
           memoList = memoList.concat(myService.formatMemoList(result));
         }
-        this.setData({ memoList });
         let { pageSize, pageNum, totalRecord } = res.data;
         this.data.footer = { pageSize, pageNum, totalRecord };
+        this.setData({ memoList });
       }
     });
   },
@@ -64,13 +89,21 @@ Page({
 
   // 选择分类
   doSelectClassify(event) {
-    let { value } = event.detail;
-    console.log("选择分类====>", value);
+    let { label } = event.detail;
+    this.data.searchParam.classify = label;
+    this.doReset();
   },
 
   // 添加分类
   doAddClassify(event) {
     console.log("添加分类===>", event);
+  },
+
+  // 组件搜索
+  doComSearch(event) {
+    let { value } = event.detail;
+    this.data.searchParam.keyWord = value;
+    this.doReset();
   },
 
   // 切换日期

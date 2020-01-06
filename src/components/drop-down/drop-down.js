@@ -1,9 +1,7 @@
+import { slutil } from '../../common/index.js';
+
 Component({
   behaviors: [],
-
-  data: {
-    // show: false,
-  },
 
   properties: {
     show: {
@@ -12,14 +10,7 @@ Component({
     },
     list: {
       type: Array,
-      // value: [],
-      value: [
-        { label: '所有', value: 11 },
-        { label: '添加1', value: 11 },
-        { label: '添加2', value: 11 },
-        { label: '添加3', value: 11 },
-        { label: '添加4', value: 11 },
-      ]
+      value: [],
     },
     selectIndex: {
       type: Number,
@@ -29,10 +20,6 @@ Component({
       type: String,
       value: '添加',
     }
-  },
-
-  observers: {  // 监听
-   
   },
 
   methods: {

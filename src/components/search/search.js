@@ -27,7 +27,7 @@ Component({
 
     // 取消
     doCancel(event) {
-      this.setData({ keyword: '' });
+      this.setData({ keyWord: '' });
     },
 
     // keyword值改变
@@ -40,6 +40,7 @@ Component({
     doSearch(event) {
       let { keyWord: value } = this.data;
       this.triggerEvent('search', { value });
+      this.doClose();
     },
   }
 })

@@ -3,9 +3,8 @@
     "name": "备忘-查询记录",
     "value": {
       "usercode": "1577431820493test1",
-      "memocode": "memo1577698220968|1577431820493test1",
-      "starttime": "2019-12-29",
-      "endtime": "2020-01-01",
+      "classify": "测试1",
+      "keyword": "测试",
       "pageSize": 10,
       "pageNum": 1,
       "totalRecord": 0

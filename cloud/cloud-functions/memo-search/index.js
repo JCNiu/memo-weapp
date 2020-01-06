@@ -10,7 +10,7 @@ const _ = db.command;
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const { usercode, memocode, starttime, endtime } = event;
+  const { usercode, memocode, starttime, endtime, classify, keyword = "" } = event;
   let { pageSize = 10, pageNum = 1, totalRecord = 0 } = event;
   let currentTime = (new Date()).getTime();
   let startTime = starttime ? myService.strToTime(starttime + ' 00:00:00') : myService.strToTime('2019-01-01 00:00:00');
@@ -18,18 +18,20 @@ exports.main = async (event, context) => {
   let results = { result: null, retMsg: "操作失败！", retCode: 'FAIL' };
   let okResults = { retMsg: "操作成功！", retCode: 'SUCCESS' };
   // 查询数据量
-  ({ total:totalRecord } = await memoColl.where({
-    'usercode': usercode,
-    'memocode': memocode,
-    'createtime': _.gte(startTime).and(_.lte(endTime)),
-  }).count());
+  let param = myService.filterParams({
+    usercode,
+    memocode,
+    createtime: _.gte(startTime).and(_.lte(endTime)),
+    classify,
+    title: !keyword ? keyword : db.RegExp({
+      regexp: keyword,
+      options: 'i', 
+    })
+  });
+  ({ total: totalRecord } = await memoColl.where(param).count());
   let totalPage = Math.ceil(totalRecord / pageSize);
   // 查询数据库
-  await memoColl.where({
-    'usercode': usercode,
-    'memocode': memocode,
-    'createtime': _.gte(startTime).and(_.lte(endTime)),
-  }).skip(pageSize * (pageNum - 1)).limit(pageSize).get().then(res => {
+  await memoColl.where(param).skip(pageSize * (pageNum - 1)).limit(pageSize).get().then(res => {
     let { data } = res;
     if (data && data.length > 0) pageNum ++;
     results = { 
@@ -44,3 +46,4 @@ exports.main = async (event, context) => {
 
   return results;
 }
+
