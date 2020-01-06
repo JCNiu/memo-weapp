@@ -1,0 +1,9 @@
+<view class="roll-view">
+  <view class="roll-view-list" animation="{{animationData}}">
+    <block wx:for="{{infoList}}" wx:key="index">
+      <view class="roll-view-item" catchtap="onclick" data-index="{{index}}">
+        {{item.value}}
+      </view>
+    </block>
+  </view>
+</view>

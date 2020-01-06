@@ -1,0 +1,18 @@
+<include src="../../../common/common.wxml" />
+
+<view class="container">
+  <view class='logo-wrap'></view>
+  <view class='content'>
+    <sui-input label="用户名" bindinputBlur='inputBlur' must="true" data-type="username"></sui-input>
+    <sui-input label="EMAIL" bindinputBlur='inputBlur' must="true" data-type="email"></sui-input>
+    <sui-input label="密码" type="password" bindinputBlur='inputBlur' must="true" data-type="password"></sui-input>
+    <sui-input label="邀请码" bindinputBlur='inputBlur' must="true" data-type="invitecode"></sui-input>
+    <view class='submit-btn-wrap'>
+      <button class='submit-btn' catchtap="onRegister">注册</button>
+    </view>
+    <view class='info'>
+      <text>已有账号？</text>
+      <text class='info-btn' catchtap="goToLogin">登录</text>
+    </view>
+  </view>
+</view> 

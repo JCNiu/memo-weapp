@@ -1,0 +1,77 @@
+@import './iconfont.wxss';
+
+.calendar-container {
+  position: relative;
+  width: 100%;
+}
+
+.calendar {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24rpx;
+  height: 88rpx;
+  color: #686868;
+  font-size: 28rpx;
+}
+
+.content {
+  padding: 18rpx;
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #4fd2c2;
+}
+
+.content-tabl {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 28rpx;
+}
+
+.content-tabl-item {
+  flex: 1;
+  height: 68rpx;
+  line-height: 68rpx;
+  text-align: center;
+}
+
+.content-cont {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.content-cont-item {
+  position: relative;
+  width: calc(100% / 7);
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.content-cont-item.active {
+  color: #4fd2c2;
+  background-color: #fff;
+}
+
+.content-cont-item.havecont::before {
+  content: '';
+  position: absolute;
+  bottom: 8rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8rpx;
+  height: 8rpx;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.content-cont-item.active.havecont::before {
+  background-color: #4fd2c2;
+}

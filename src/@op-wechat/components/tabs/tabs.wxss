@@ -1,0 +1,78 @@
+@import '/@op-wechat/assets/css/index.wxss';
+
+.tabs-container {
+  position: relative;
+  width: 100%;
+  height: 80rpx;
+  color: #333;
+  font-size: 28rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.tabs-list {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.tabs-item {
+  flex: 1;
+  position: relative;
+  min-width: 20%;
+  height: 100%;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.tabs-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0rpx;
+  left: 50%;
+  width: 80%;
+  height: 6rpx;
+  background-color: #ea3323;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.tabs-item-follow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 0;
+  height: 6rpx;
+  background-color: #ea3323;
+  transition: all 0.4s;
+  z-index: 20;
+}
+
+.tabs-item-follow.active::after {
+  width: 100%;
+  left: 0;
+  transform: translateX(0);
+  transition-delay: 0.1s;
+}
+
+.tabs-item-follow.active ~ .tabs-item-follow::after {
+  left: 0;
+}
+
+.tabs-item-open::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0; 
+  margin: auto;
+  width: 0;
+  height: 6rpx;
+  background-color: #ea3323;
+  transition: width .4s;
+}
+
+.tabs-item-open.active::after {
+  width: 100%;
+}

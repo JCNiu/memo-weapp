@@ -1,0 +1,30 @@
+<view class="calendar-container">
+  <view class="calendar">
+    <view class="header">
+      <view class="header-arrow iconfont icon-double-arrow" catchtap="prevYear"></view>
+      <view class="header-arrow iconfont icon-arrow" catchtap="prevMoth"></view>
+      <view class="header-info" catchtap="openDate">{{_selectDate}}</view>
+      <view class="header-arrow iconfont icon-arrow-right" catchtap="nextMoth"></view>
+      <view class="header-arrow iconfont icon-double-arrow-right" catchtap="nextYear"></view>
+    </view>
+    <view class="content" hidden="{{!isContent}}">
+      <view class="content-tabl">
+        <view class="content-tabl-item">日</view>
+        <view class="content-tabl-item">一</view>
+        <view class="content-tabl-item">二</view>
+        <view class="content-tabl-item">三</view>
+        <view class="content-tabl-item">四</view>
+        <view class="content-tabl-item">五</view>
+        <view class="content-tabl-item">六</view>
+      </view>
+      <view class="content-cont">
+        <block wx:for="{{dateArr}}" wx:key="index">
+          <view class="content-cont-item {{item.date == _selectDate ? 'active' : ''}} {{item.havecont ? 'havecont' : ''}}"
+            catchtap="selectDate"
+            data-date="{{item.date}}">{{item.num}}
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

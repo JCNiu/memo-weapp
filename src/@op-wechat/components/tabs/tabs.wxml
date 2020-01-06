@@ -1,0 +1,10 @@
+<view class="tabs-container">
+  <scroll-view class="tabs-list" scroll-x="true" enable-flex="true">
+    <block wx:for="{{tabsList}}" wx:key="index">
+      <view class="tabs-item sl-overflow {{activeIndex == index ? 'active' : ''}} {{'tabs-item-' + tabAnimate}}"
+        catchtap="selectTab"
+        data-index="{{index}}">{{item.label}}
+      </view>
+    </block>
+  </scroll-view>
+</view>

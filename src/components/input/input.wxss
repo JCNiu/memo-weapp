@@ -1,0 +1,43 @@
+.memoinput-row {
+  margin-top: 32rpx;
+  width: 100%;
+}
+
+.memoinput-row-label {
+  color: #686868;
+  font-size: 24rpx;
+}
+
+.memoinput-input-wrap {
+  position: relative;
+  height: 68rpx;
+  line-height: 68rpx;
+}
+
+.memoinput-input {
+  height: 68rpx;
+  line-height: 68rpx;
+  color: #555;
+  border: none;
+  border-bottom: 1rpx solid #d2d2d2;
+}
+
+.memoinput-input-password {
+  padding-right: 160rpx;
+}
+
+.memoinput-input-rem {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: #686868;
+  font-size: 28rpx;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+/* 必填 */
+.must::before{
+  content: '*';
+  color: #ea3323;
+}

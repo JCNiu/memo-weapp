@@ -1,0 +1,13 @@
+<!-- 常用基础组件 -->
+<!-- 轻提示 -->
+<block wx:if="{{enableToast}}" catchtouchmove="true">
+    <van-toast id="van-toast" />
+</block>
+<!-- 提示框 -->
+<block wx:if="{{enableDialog}}" catchtouchmove="true">
+    <van-dialog id="van-dialog"  style="position: relative; z-index: 666;"/>
+</block>
+<!-- 消息通知 -->
+<block wx:if="{{enableNotify}}" catchtouchmove="true">
+    <van-notify id="van-notify" />
+</block>

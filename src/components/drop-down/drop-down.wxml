@@ -1,0 +1,33 @@
+<view class="drop-down-header" catchtap="doOpen">
+  <text>{{list[selectIndex].label}}</text>
+  <view class="arrow"></view>
+</view>
+
+<van-popup
+  show="{{ show }}"
+  closeable
+  position="top"
+  custom-style="top: 88rpx; max-height: 60%; overflow: hidden;"
+  overlay-style="background-color: transparent;"
+  bind:click-overlay="doClose">
+  <view class="drop-down-content">
+    <scroll-view class="scroll-view" scroll-y="true">
+      <block wx:for="{{list}}" wx:key="index">
+        <view class="row {{index == selectIndex ? 'active' : ''}}" catchtap="doSelect" data-index="{{index}}">
+          <view class="row-left">
+            <view class="row-left-arrow">
+              <view hidden="{{index != selectIndex}}">
+                <van-icon class="icon-arrow" name="arrow" />
+              </view>
+            </view>
+            <view class="row-left-cont">{{item.label}}</view>
+          </view>
+          <view class="row-right {{index == selectIndex ? 'active' : ''}}">{{item.value}}</view>
+        </view>
+      </block>
+    </scroll-view>
+    <view class="btn-wrap">
+      <button class="btn" catchtap="doBtn">{{btnValue}}</button>
+    </view>
+  </view>
+</van-popup>

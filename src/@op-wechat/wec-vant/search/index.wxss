@@ -1,0 +1,37 @@
+@import '../common/index.wxss';
+.van-search {
+	display: -webkit-flex;
+	display: flex;
+	padding: 14rpx 30rpx;
+	-webkit-align-items: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+.van-search__field {
+	overflow: hidden;
+	border-radius: 8rpx;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.van-search__field__left-icon {
+	color: #999;
+}
+.van-search--show-action {
+	padding-right: 0;
+}
+.van-search input::-webkit-search-cancel-button,
+.van-search input::-webkit-search-decoration,
+.van-search input::-webkit-search-results-button,
+.van-search input::-webkit-search-results-decoration {
+	display: none;
+}
+.van-search__action {
+	padding: 0 20rpx;
+	font-size: 28rpx;
+	line-height: 60rpx;
+    color: #7d7e80;
+    display: flex;
+}
+.van-search__action:active {
+	background-color: #e8e8e8;
+}

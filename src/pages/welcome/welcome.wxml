@@ -1,0 +1,10 @@
+<include src="../../common/common.wxml"></include>
+
+<view class="welcome-page">
+  <div class="sdk-version-tip" wx:if="{{ sdkVersionTipShow }}">
+    <div class="title">温馨提示</div>
+    <div class="message">您的微信版本号过低，请更新</div>
+    <navigator class="btn" open-type="exit" target="miniProgram">确认</navigator>
+  </div>
+  <div class="modal" wx:if="{{ sdkVersionTipShow }}"></div>
+</view>

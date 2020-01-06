@@ -1,0 +1,21 @@
+<view class="search-header" catchtap="doOpen">
+  <van-icon class="icon-search" name="search" size="40rpx"/>
+</view>
+
+<van-popup
+  show="{{ show }}"
+  closeable
+  position="top"
+  custom-style="top: 88rpx; max-height: 60%; overflow: hidden;"
+  overlay-style="background-color: transparent;"
+  bind:click-overlay="doClose">
+  <view class="search-content">
+    <input class="search-input" 
+      type="text"
+      valu="{{keyWord}}"
+      bindinput="onChange"
+      bindconfirm="doSearch">
+    </input>
+    <button class="cancelBtn" catchtap="doCancel">取消</button>
+  </view>
+</van-popup>

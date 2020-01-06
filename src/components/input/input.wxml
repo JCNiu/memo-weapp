@@ -1,0 +1,7 @@
+<view class="memoinput-row">
+  <view class="memoinput-row-label {{must ? 'must' : ''}}">{{label}}</view>
+  <view class="memoinput-input-wrap">
+    <input class="memoinput-input memoinput-input-password" type="{{type}}" value="{{value}}" bindblur="inputBlur"></input>
+    <view class="memoinput-input-rem" wx:if="{{rem}}" catchtap="clickRem">{{rem}}</view>
+  </view>
+</view>

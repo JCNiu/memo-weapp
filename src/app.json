@@ -1,0 +1,113 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/login/login",
+    "pages/home/home",
+    "pages/classify/classify",
+    "pages/memo/memo",
+    "pages/memo/memo-detail/memo-detail"
+  ],
+  "subpackages": [
+    {
+      "root": "loginPage",
+      "pages": [
+        "pages/register/register",
+        "pages/password-edit/password-edit",
+        "pages/password-forget/password-forget"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/login/login": {
+      "network": "all",
+      "packages": [
+        "loginPage"
+      ]
+    }
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "assets/imgs/nav/icon_menu_home_nor.png",
+        "selectedIconPath": "assets/imgs/nav/icon_menu_home_select.png",
+        "text": "首页"
+      },{
+        "pagePath": "pages/classify/classify",
+        "iconPath": "assets/imgs/nav/icon_menu_home_nor.png",
+        "selectedIconPath": "assets/imgs/nav/icon_menu_home_select.png",
+        "text": "分类"
+      }
+    ]
+  },
+  "usingComponents": {
+    "sui-search": "components/search/search",
+    "sui-drop-down": "components/drop-down/drop-down",
+    "sui-input": "components/input/input",
+    "sui-calendar": "/components/calendar/calendar",
+    "sui-roll-view": "/components/roll-view/roll-view",
+    "sui-tab": "@op-wechat/components/tabs/tabs",
+    "van-action-sheet": "@op-wechat/wec-vant/action-sheet/index",
+    "van-area": "@op-wechat/wec-vant/area/index",
+    "van-listview": "@op-wechat/wec-vant/listview/listview",
+    "van-badge": "@op-wechat/wec-vant/badge/index",
+    "van-badge-group": "@op-wechat/wec-vant/badge-group/index",
+    "van-button": "@op-wechat/wec-vant/button/index",
+    "van-card": "@op-wechat/wec-vant/card/index",
+    "van-cell": "@op-wechat/wec-vant/cell/index",
+    "van-cell-group": "@op-wechat/wec-vant/cell-group/index",
+    "van-checkbox": "@op-wechat/wec-vant/checkbox/index",
+    "van-checkbox-group": "@op-wechat/wec-vant/checkbox-group/index",
+    "van-col": "@op-wechat/wec-vant/col/index",
+    "van-dialog": "@op-wechat/wec-vant/dialog/index",
+    "van-field": "@op-wechat/wec-vant/field/index",
+    "van-goods-action": "@op-wechat/wec-vant/goods-action/index",
+    "van-goods-action-icon": "@op-wechat/wec-vant/goods-action-icon/index",
+    "van-goods-action-button": "@op-wechat/wec-vant/goods-action-button/index",
+    "van-icon": "@op-wechat/wec-vant/icon/index",
+    "van-loading": "@op-wechat/wec-vant/loading/index",
+    "van-nav-bar": "@op-wechat/wec-vant/nav-bar/index",
+    "van-notice-bar": "@op-wechat/wec-vant/notice-bar/index",
+    "van-notify": "@op-wechat/wec-vant/notify/index",
+    "van-panel": "@op-wechat/wec-vant/panel/index",
+    "van-popup": "@op-wechat/wec-vant/popup/index",
+    "van-progress": "@op-wechat/wec-vant/progress/index",
+    "van-radio": "@op-wechat/wec-vant/radio/index",
+    "van-radio-group": "@op-wechat/wec-vant/radio-group/index",
+    "van-row": "@op-wechat/wec-vant/row/index",
+    "van-search": "@op-wechat/wec-vant/search/index",
+    "van-slider": "@op-wechat/wec-vant/slider/index",
+    "van-stepper": "@op-wechat/wec-vant/stepper/index",
+    "van-steps": "@op-wechat/wec-vant/steps/index",
+    "van-submit-bar": "@op-wechat/wec-vant/submit-bar/index",
+    "van-swipe-cell": "@op-wechat/wec-vant/swipe-cell/index",
+    "van-switch": "@op-wechat/wec-vant/switch/index",
+    "van-switch-cell": "@op-wechat/wec-vant/switch-cell/index",
+    "van-tab": "@op-wechat/wec-vant/tab/index",
+    "van-tabs": "@op-wechat/wec-vant/tabs/index",
+    "van-tabbar": "@op-wechat/wec-vant/tabbar/index",
+    "van-tabbar-item": "@op-wechat/wec-vant/tabbar-item/index",
+    "van-tag": "@op-wechat/wec-vant/tag/index",
+    "van-toast": "@op-wechat/wec-vant/toast/index",
+    "van-transition": "@op-wechat/wec-vant/transition/index",
+    "van-tree-select": "@op-wechat/wec-vant/tree-select/index",
+    "van-datetime-picker": "@op-wechat/wec-vant/datetime-picker/index",
+    "van-rate": "@op-wechat/wec-vant/rate/index",
+    "van-collapse": "@op-wechat/wec-vant/collapse/index",
+    "van-collapse-item": "@op-wechat/wec-vant/collapse-item/index",
+    "van-picker": "@op-wechat/wec-vant/picker/index"
+
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

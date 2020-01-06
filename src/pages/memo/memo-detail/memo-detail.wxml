@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="header">
+    <view class="header-info">
+      <text>名称</text>
+      <text wx:if="{{ mtime }}">上次编辑：{{ mtimeValue }}</text>
+    </view>
+    <view class="header-cont">
+      <input class="header-cont-title" type="text" value="{{ title }}" bindblur="titleOnChange"></input>
+    </view>
+  </view>
+  <view class="content">
+    <view class="content-info">内容</view>
+    <textarea class="content-cont" value="{{ content }}" bindinput="contentOnChange"></textarea>
+  </view>
+  <view class="footer">
+    <button class="btn" wx:if="{{ !isAdd }}" catchtap="doDel">删除</button>
+    <button class="btn primary" catchtap="doSave">保存</button>
+  </view>
+</view>

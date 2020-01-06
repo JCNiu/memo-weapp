@@ -1,0 +1,23 @@
+/* 单行省略 */
+
+.sl-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 两行省略 */
+
+.sl-overflow-2, .sl-overflow-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+/* 三行省略 */
+
+.sl-overflow-3 {
+  -webkit-line-clamp: 2;
+}

@@ -1,0 +1,41 @@
+<view class="container">
+  <!-- <view class="calendar-wrap">
+    <sui-calendar 
+      bindonChange="dateOnChange"
+      selectDate="{{searchParam.selectTime}}"
+      havacontDate="{{['2019-11-06', '2019-11-12']}}">
+    </sui-calendar>
+  </view> -->
+  <view class="header">
+    <view class="header-left">
+      <sui-drop-down
+        bindselect="doSelectClassify"
+        bindbutton="doAddClassify">
+      </sui-drop-down>
+    </view>
+    <view class="header-right">
+      <!-- <van-icon class="header-right-search" name="search" size="40rpx" /> -->
+      <sui-search></sui-search>
+    </view>
+  </view>
+  <view class="content">
+    <view class="memo-list">
+      <block wx:for="{{memoList}}" wx:key="memocode">
+        <view class="memo-item" catchtap="goToDetail" data-index="{{index}}">
+          <view class="memo-title">
+            <label class="memo-label">便签</label>
+            <text class="sl-overflow">{{item.title}}</text>
+          </view>
+          <view class="memo-cont sl-overflow">{{item.content}}</view>
+          <view class="memo-info">
+            <van-icon class="clock-o" name="clock-o" size="28rpx" />
+            <text class="sl-overflow">{{item.mtimeValue}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="btn-wrap">
+    <button class="btn" catchtap="goToDetail" data-type="add"></button>
+  </view>
+</view>

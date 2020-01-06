@@ -1,0 +1,21 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<van-overlay
+  wx:if="{{ inited && overlay }}"
+  mask
+  show="{{ show }}"
+  z-index="{{ zIndex }}"
+  custom-style="{{ overlayStyle }}"
+  bind:click="onClickOverlay"
+  catchtouchmove="true"
+/>
+<!-- catchtouchmove="ture" 阻止滚动冒泡,防止父界面滚动;增加后,连弹出框都无法滚动-->
+<view
+  wx:if="{{ inited }}"
+  class="custom-class {{fullScreen ? 'wh-100p' : ''}} {{ utils.bem('popup', [position, { safe: isIPhoneX && safeAreaInsetBottom && position === 'bottom' }]) }}"
+  style="z-index: {{ zIndex }}; -webkit-animation: van-{{ transition || position }}-{{ type }} {{ duration }}ms both; animation: van-{{ transition || position }}-{{ type }} {{ duration }}ms both; {{ display ? '' : 'display: none;' }}{{ customStyle }}"
+  bind:animationend="onAnimationEnd"
+  catchtouchmove="true"
+> 
+  <slot />
+</view>

@@ -1,0 +1,2 @@
+/* 引入op样式 */
+@import '@op-wechat/assets/css/index.wxss';

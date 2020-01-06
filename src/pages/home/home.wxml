@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="header">
+    <view class="header-label">XXXX：</view>
+    <view class="header-cont">
+      <memo-roll-view bindonclick="rollViewClick"></memo-roll-view>
+    </view>
+  </view>
+  <view class="banner">
+    <swiper class="swiper" autoplay="true" interval="3000">
+      <swiper-item class="swiper-item" wx:for="{{3}}" wx:key="index">
+        <view class="swiper-item-cont">
+          <text class="sic-info">很多很多字{{item}}</text>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="classify">
+    <view class="classify-item" catchtap="goToRoute" data-route="memo">
+      <view class="classify-item-logo"></view>
+      <text>备忘</text>
+    </view>
+
+    <view class="classify-item">
+      <view class="classify-item-logo"></view>
+      <text>运动</text>
+    </view>
+
+    <view class="classify-item">
+      <view class="classify-item-logo"></view>
+      <text>理财</text>
+    </view>
+
+    <view class="classify-item">
+      <view class="classify-item-logo"></view>
+      <text>爬山</text>
+    </view>
+
+    <view class="classify-item">
+      <view class="classify-item-logo"></view>
+      <text>任务</text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="cont-list">
+      <block wx:for="{{3}}" wx:key="index">
+        <view class="cont-list-itme">
+          <view class="cli-header">
+            <view class="cli-header-title">titletitletitletitletitletitletitletitletitletitletitletitletitletitle</view>
+            <view class="cli-header-label">label</view>
+          </view>
+          <view class="cli-cont">contcontcontcontcontcontcontcontcontcontcontcontcontcontcontcontcontcontcontcontcont</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

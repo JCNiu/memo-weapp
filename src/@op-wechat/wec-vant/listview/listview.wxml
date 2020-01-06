@@ -1,0 +1,8 @@
+<view>
+  <slot/>
+  <view style="text-align:center;">
+    <view wx:if="{{footer.totalCount==0}}">{{noRecordMsg}}</view>
+    <van-loading  wx:if="{{loading && searchType=='nextpage'}}" />
+    <view wx:if="{{rows.length!=0 && rows.length >= footer.totalCount}}">{{noMoreDataMsg}}</view>
+  </view>
+</view>
