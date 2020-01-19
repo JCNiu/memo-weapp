@@ -30,10 +30,8 @@ function traversing(mods, conf) {
 }
 
 function bem(name, conf) {
-  
   var mods = [];
   traversing(mods, conf);
-  // console.log("bem========>name:",name,"conf:", conf,"mods:",mods);
   return join(name, mods);
 }
 

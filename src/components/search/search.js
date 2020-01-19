@@ -8,7 +8,7 @@ Component({
       type: Boolean,
       value: false,
     },
-    keyWord: {
+    keyword: {
       type: String,
       value: '',
     },
@@ -27,18 +27,18 @@ Component({
 
     // 取消
     doCancel(event) {
-      this.setData({ keyWord: '' });
+      this.setData({ keyword: '' });
     },
 
     // keyword值改变
     onChange(event) {
       let { value } = event.detail
-      this.data.keyWord = value;
+      this.data.keyword = value;
     },
 
     // 搜索
     doSearch(event) {
-      let { keyWord: value } = this.data;
+      let { keyword: value } = this.data;
       this.triggerEvent('search', { value });
       this.doClose();
     },

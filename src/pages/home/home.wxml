@@ -1,3 +1,5 @@
+<include src="../../common/common.wxml" />
+
 <view class="container">
   <view class="header">
     <view class="header-label">XXXX：</view>

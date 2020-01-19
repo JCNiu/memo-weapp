@@ -1,5 +1,5 @@
 <view class="search-header" catchtap="doOpen">
-  <van-icon class="icon-search" name="search" size="40rpx"/>
+  <van-icon class="icon" name="search" size="40rpx"/>
 </view>
 
 <van-popup
@@ -11,7 +11,7 @@
   <view class="search-content">
     <input class="search-input" 
       type="text"
-      value="{{ keyWord }}"
+      value="{{ keyword }}"
       bindinput="onChange"
       bindconfirm="doSearch">
     </input>

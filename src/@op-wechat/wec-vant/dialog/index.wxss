@@ -1,67 +1,97 @@
 @import '../common/index.wxss';
+
 .van-dialog {
-  width: 560rpx;
+  top: 45% !important;
   overflow: hidden;
-	font-size: 16px;
-	border-radius: 4px;
-	background-color: #fff;
+  width: 320px;
+  width: var(--dialog-width, 320px);
+  font-size: 16px;
+  font-size: var(--dialog-font-size, 16px);
+  border-radius: 16px;
+  border-radius: var(--dialog-border-radius, 16px);
+  background-color: #fff;
+  background-color: var(--dialog-background-color, #fff);
 }
+
+@media (max-width:321px) {
+  .van-dialog {
+    width: 90%;
+    width: var(--dialog-small-screen-width, 90%);
+  }
+}
+
 .van-dialog__header {
-	font-weight: 500;
-	padding-top: 25px;
-	text-align: center;
+  text-align: center;
+  padding-top: 24px;
+  padding-top: var(--dialog-header-padding-top, 24px);
+  font-weight: 500;
+  font-weight: var(--dialog-header-font-weight, 500);
+  line-height: 24px;
+  line-height: var(--dialog-header-line-height, 24px);
 }
+
 .van-dialog__header--isolated {
-	padding: 25px 0;
+  padding: 24px 0;
+  padding: var(--dialog-header-isolated-padding, 24px 0);
 }
+
 .van-dialog__message {
-	padding: 50rpx;
-	max-height: 60vh;
-	line-height: 1.5;
-  color: #686868;
-	font-size: 30rpx;
-	overflow-y: auto;
-	text-align: center;
-	-webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+  font-size: 14px;
+  font-size: var(--dialog-message-font-size, 14px);
+  line-height: 20px;
+  line-height: var(--dialog-message-line-height, 20px);
+  max-height: 60vh;
+  max-height: var(--dialog-message-max-height, 60vh);
+  padding: 24px;
+  padding: var(--dialog-message-padding, 24px);
 }
+
+.van-dialog__message-text {
+  word-wrap: break-word;
+}
+
 .van-dialog__message--has-title {
-	padding-top: 12px;
-	color: #7d7e80;
+  padding-top: 12px;
+  padding-top: var(--dialog-has-title-message-padding-top, 12px);
+  color: #646566;
+  color: var(--dialog-has-title-message-text-color, #646566);
 }
+
 .van-dialog__message--left {
-	text-align: left;
+  text-align: left;
 }
+
 .van-dialog__message--right {
-	text-align: right;
+  text-align: right;
 }
+
 .van-dialog__footer {
-	display: -webkit-flex;
-	display: flex;
+  display: -webkit-flex;
+  display: flex;
 }
+
 .van-dialog__button {
-	-webkit-flex: 1;
-	flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  /* 版本兼容 */
+  max-width: 320rpx;
 }
-.van-dialog__cancel,
-.van-dialog__confirm {
-  color: #000;
-  font-size: 36rpx;
-  border: none !important;
-  border-top: 1rpx solid #d2d3d5 !important;
+
+.van-dialog__cancel, .van-dialog__confirm {
+  border: 0 !important;
 }
-.van-dialog__confirm,
-.van-dialog__confirm:active {
-	/* color: #1989fa !important; */
-  color: #ea3323 !important;
-  border-left: 1rpx solid #d2d3d5  !important;
-}
+
 .van-dialog-bounce-enter {
-	opacity: 0;
-	-webkit-transform: translate3d(-50%, -50%, 0) scale(.7);
-	transform: translate3d(-50%, -50%, 0) scale(.7);
+  -webkit-transform: translate3d(-50%, -50%, 0) scale(0.7);
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
+  opacity: 0;
 }
+
 .van-dialog-bounce-leave-active {
-	opacity: 0;
-	-webkit-transform: translate3d(-50%, -50%, 0) scale(.9);
-	transform: translate3d(-50%, -50%, 0) scale(.9);
+  -webkit-transform: translate3d(-50%, -50%, 0) scale(0.9);
+  transform: translate3d(-50%, -50%, 0) scale(0.9);
+  opacity: 0;
 }

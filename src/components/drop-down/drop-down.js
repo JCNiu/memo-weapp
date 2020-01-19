@@ -44,6 +44,7 @@ Component({
     // btn
     doBtn(event) {
       this.triggerEvent('button', {});
+      this.doClose();
     }
   }
 })

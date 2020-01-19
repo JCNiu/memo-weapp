@@ -1,9 +1,9 @@
-import { slutil, Page, suiLocalConfig } from '../../common/index';
+import { slutil, Page, suiLocalConfig, Dialog } from '../../common/index';
 import myService from './home.service';
 
 Page({
   data: {
-
+    enableDialog: true,
   },
 
   onSlShow() {

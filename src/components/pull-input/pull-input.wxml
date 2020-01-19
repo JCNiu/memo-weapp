@@ -1,0 +1,20 @@
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  round="true"
+  custom-style="max-height: 40%; border-top-right-radius: 48rpx; border-top-left-radius: 48rpx; overflow: hidden;"
+  overlay-style=""
+  bind:click-overlay="doClose">
+  <view class="pull-input-content">
+    <view class="title">{{ title }}</view>
+    <input class="input" 
+      type="text" 
+      value="{{ value }}"
+      bindinput="onChange">
+    </input>
+    <view class="btn-wrap">
+      <button class="btn" catchtap="doCancel">取消</button>
+      <button class="btn" catchtap="doConfirm">确定</button>
+    </view>
+  </view>
+</van-popup>

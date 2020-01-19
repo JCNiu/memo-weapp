@@ -28,7 +28,8 @@
 
 .scroll-view {
   width: 100%;
-  max-height: calc(100% - 128rpx);
+  /* max-height: calc(100% - 128rpx); */
+  max-height: 500rpx;
 }
 
 .row {

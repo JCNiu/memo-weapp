@@ -1,19 +1,27 @@
-import { slutil, Page, suiLocalConfig } from '../../common/index';
+import { slutil, Page, suiLocalConfig, Dialog } from '../../common/index';
 import myService from './memo.service';
 
 Page({
   data: {
+    // 是否使用轻提示组件
+    enableToast: true,
+    // 是否使用提示框组件
+    enableDialog: true,
     // 下拉组件展示
     isDropDown: false,
+    // 添加分类输入
+    isAddClassify: false,
     // 分类列表
     classifyList: [],
+    // 更多列表
+    moreList: [],
     // 备忘列表
     memoList: [],
     // 查询参数
     searchParam: {
       // selectTime: '',
-      keyWord: '',        // 关键字
-      classify: '',       // 分类
+      keyword: '',        // 关键字
+      classify: '所有',   // 分类
 
     },
     footer: {
@@ -30,14 +38,14 @@ Page({
   // 初始化
   init() {
     // this.setData({ ['searchParam.selectTime']: slutil.date.toStr(slutil.date.getToday()) });
+    this.setData({ moreList: myService.dictionary.moreList });
     this.classifyInit();
     this.doReset();
   },
 
   // 分类初始化 
   classifyInit() {
-    let param = { usercode: suiLocalConfig.loginInfo.code };
-    myService.getClassifyList(param).then(res => {
+    myService.getClassifyList({}).then(res => {
       let { result } = res.data;
       let classifyList = [];
       result.map((item, index) => {
@@ -55,10 +63,9 @@ Page({
   doSearch() {
     let { searchParam, memoList, footer } = this.data;
     let param = {
-      usercode: suiLocalConfig.loginInfo.code,
       // starttime: searchParam.selectTime,
       // endtime: searchParam.selectTime,
-      keyword: searchParam.keyWord,
+      keyword: searchParam.keyword,
       classify: searchParam.classify,
       ...footer,
     }
@@ -87,22 +94,75 @@ Page({
     this.doSearch();
   },
 
+  // 添加分类输入
+  openAddClassify(event) {
+    this.setData({ isAddClassify: true });
+  },
+
   // 选择分类
   doSelectClassify(event) {
     let { label } = event.detail;
-    this.data.searchParam.classify = label;
+    this.setData({ [`searchParam.classify`]: label });
     this.doReset();
+  },
+
+  // 更多选择
+  doSelectMore(event) {
+    let { value } = event.detail;
+    switch(value) {
+      case 'edit': 
+        this.setData({ isEditClassify: true }); 
+        break;
+      case 'del': 
+        this.doDelClassify(); 
+        break;
+    }
   },
 
   // 添加分类
   doAddClassify(event) {
-    console.log("添加分类===>", event);
+    let { value } = event.detail;
+    let param = { operate: 'add', value };
+    myService.operateClassify(param).then(res => {
+      setTimeout(() => { this.classifyInit();}, 50);
+    })
+  },
+
+  // 修改分类
+  doEditClassify(event) {
+    let { value } = event.detail;
+    let { classify } = this.data.searchParam;
+    let param = { operate: 'edit', value};
+    myService.operateClassify(param).then(res => {
+      setTimeout(() => { this.classifyInit(); }, 50);
+    })
+  },
+
+  // 删除分类
+  doDelClassify(event) {
+    Dialog.confirm({
+      message: '删除当前分类？'
+    }).then(res => {
+      debugger
+
+      const { type } = resp.originEvent.detail;
+      if (type === 'confirm') {
+        let { classify } = this.data.searchParam;
+        let param = { operate: 'del', value };
+        myService.operateClassify(param).then(res => {
+          setTimeout(() => { this.classifyInit(); }, 50);
+        })
+      }
+    }).catch(res => {
+      debugger
+    })
+    
   },
 
   // 组件搜索
   doComSearch(event) {
     let { value } = event.detail;
-    this.data.searchParam.keyWord = value;
+    this.data.searchParam.keyword = value;
     this.doReset();
   },
 

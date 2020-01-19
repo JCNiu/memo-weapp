@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
     usercode,
     memocode,
     createtime: _.gte(startTime).and(_.lte(endTime)),
-    classify,
+    classify: classify === '所有' ? '' : classify,
     title: !keyword ? keyword : db.RegExp({
       regexp: keyword,
       options: 'i', 

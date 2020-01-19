@@ -22,7 +22,7 @@
   font-weight: bold;
   background-color: #fff;
   border-bottom: 1rpx solid #d2d2d2;
-  z-index: 20;
+  z-index: 25;
 }
 
 .header-left {
@@ -35,9 +35,9 @@
 
 .header-right {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  width: 120rpx;
+  width: 240rpx;
   height: 100%;
   color: #333;
 }

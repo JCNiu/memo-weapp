@@ -1,3 +1,5 @@
+<include src="../../common/common.wxml" />
+
 <view class="container">
   <!-- <view class="calendar-wrap">
     <sui-calendar 
@@ -11,11 +13,12 @@
       <sui-drop-down
         list="{{classifyList}}"
         bindselect="doSelectClassify"
-        bindbutton="doAddClassify">
+        bindbutton="openAddClassify">
       </sui-drop-down>
     </view>
     <view class="header-right">
       <sui-search bindsearch="doComSearch"></sui-search>
+      <sui-more hidden="{{searchParam.classify == '所有'}}" list="{{moreList}}" bindselect="doSelectMore"></sui-more>
     </view>
   </view>
   <view class="content" hidden="{{ memoList.length == 0 }}">
@@ -39,3 +42,17 @@
     <button class="btn" catchtap="goToDetail" data-type="add"></button>
   </view>
 </view>
+
+<!-- 添加分类 -->
+<sui-pull-input
+  show="{{ isAddClassify }}"
+  title="添加分类"
+  bindconfirm="doAddClassify">
+</sui-pull-input>
+
+<sui-pull-input
+  show="{{ isEditClassify }}"
+  title="修改分类"
+  bindconfirm="doEditClassify">
+</sui-pull-input>
+

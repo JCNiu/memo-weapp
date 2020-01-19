@@ -1,0 +1,27 @@
+[
+  {
+    "name": "添加",
+    "value": {
+      "operate": "add",
+      "usercode": "1577431820493test1",
+      "value": "测试2"
+    }
+  },
+  {
+    "name": "删除",
+    "value": {
+      "operate": "del",
+      "usercode": "1577431820493test1",
+      "value": "测试2"
+    }
+  },
+  {
+    "name": "编辑",
+    "value": {
+      "operate": "edit",
+      "usercode": "1577431820493test1",
+      "value": "111",
+      "newvalue": "000"
+    }
+  }
+]

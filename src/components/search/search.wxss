@@ -1,9 +1,3 @@
-.drop-down-content {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-}
-
 .search-header {
   display: flex;
   justify-content: center;
@@ -12,7 +6,7 @@
   height: 100%;
 }
 
-.icon-search {
+.icon {
   position: relative;
   top: 4rpx;
 }
